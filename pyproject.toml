@@ -1,0 +1,30 @@
+[project]
+name = "scylla-mem0-demo"
+version = "0.1.0"
+description = "Latency-critical transaction monitoring with ScyllaDB-backed mem0 behavioral memory"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "mem0ai[scylladb]",
+    "google-genai>=1.0.0",
+    "sentence-transformers>=3.0.0",
+    "python-dotenv>=1.0.1",
+    "streamlit>=1.38.0",
+    "rich>=13.7.0",
+]
+
+[tool.uv.sources]
+# ScyllaDB vector store support isn't merged upstream yet
+# (https://github.com/mem0ai/mem0/pull/5373), so this pins to a fork with
+# that PR applied. Switch back to a plain PyPI version once it merges.
+mem0ai = { git = "https://github.com/zseta/mem0.git", rev = "2031a42d259b3048ab88ec54a415243ea366fa47" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/txmonitor"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
