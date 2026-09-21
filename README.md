@@ -1,11 +1,6 @@
 # scylla-mem0-demo
 
-Latency-critical transaction monitoring: a rule-based decision engine that
-recalls a user's behavioral history from [mem0](https://mem0.ai), backed by
-ScyllaDB as the vector store, in the same request cycle as the decision
-itself. Built as workshop material for ScyllaDB + mem0.
-
-See [idea.md](idea.md) for the use case this demonstrates.
+Workshop material for ScyllaDB + mem0.
 
 ## Stack
 
